@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package service;
+option go_package = "./service";
+
+message HelloMessageRequest {
+
+    string type = 1;
+    string from=  2;
+    string msg = 3;
+    int32 request_id = 4;
+}
+
+message HelloMessageResponse {
+
+    string type = 1;
+    string from=  2;
+    string msg = 3;
+    int32 response_id = 4;
+}
+
+service Message {
+
+    // unary call
+    rpc Hello1 (HelloMessageRequest) returns (HelloMessageResponse);
+    rpc Hello2 (HelloMessageRequest) returns (HelloMessageResponse);
+}
+
+
